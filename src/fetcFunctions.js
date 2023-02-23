@@ -7,8 +7,16 @@
   callback(data);
  };
 
- export const formatData = async () => {
+ export const formatData = async (callback) => {
   getData(({ results }) => {
-    console.log(results);
+    const pokemonList = results.map((pokemon, index) => {
+      const number = String(index + 1).padStart(3, '0');
+      return {
+        name: pokemon.name,
+        number,
+        image: URL_IMAGE + number + '.png'
+      };
+    });
+    callback(pokemonList);
   });
  };

@@ -7,4 +7,6 @@ const pokeballElement = document.querySelector('.pokeball-back');
 
 // Funções
 
-formatData();
+formatData((pokemonList) => {
+ console.log(pokemonList);
+});
