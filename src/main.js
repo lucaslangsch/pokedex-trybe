@@ -1,4 +1,5 @@
-import { formatData } from './fetcFunctions'
+import { createList } from './createList';
+import { formatData } from './fetcFunctions';
 
 // Variáveis
 const listElement = document.querySelector('.poke-list');
@@ -7,6 +8,10 @@ const pokeballElement = document.querySelector('.pokeball-back');
 
 // Funções
 
-formatData((pokemonList) => {
- console.log(pokemonList);
-});
+const setList = () => {
+  formatData((pokemonList) => {
+    const template = createList(pokemonList);
+    listElement.innerHTML = template;
+   });
+};
+setList();
