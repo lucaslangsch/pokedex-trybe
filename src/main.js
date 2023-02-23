@@ -13,12 +13,17 @@ inputElement.addEventListener('keyup', () => {
   setList();
 });
 
+window.addEventListener('scroll', () => {
+  const rotation = `translateY(-50%) rotate(${window.scrollY / 30}deg)`;
+  pokeballElement.style.transform = rotation;
+})
+
 const setList = () => {
   formatData((pokemonList) => {
     const listFiltered = filterList(pokemonList);
     const template = createList(listFiltered);
     listElement.innerHTML = template;
-   });
+  });
 };
 
 const filterList = (pokemonList) => {
